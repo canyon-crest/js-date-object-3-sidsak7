@@ -40,7 +40,12 @@ document.getElementById("warmUpDate").innerHTML=dayName
 // Example: "4/2/2025" (no leading zeros)
 
 // STEP 6: Create a new Date object (or reuse the one from above).
-
+let date = newDate()
+let month = date.getMonth()
+let dayofmonth = date.getDay()
+let year = date.getFullYear()
+let fulldate = month + "/"+day+"/"+year
+document.getElementById("myDate").innerHTML=fulldate
 // STEP 7: Get the month using .getMonth()
 //         IMPORTANT: .getMonth() returns 0–11 (January = 0)
 //         so you must add 1 to get the correct month number.
