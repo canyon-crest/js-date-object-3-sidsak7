@@ -39,9 +39,9 @@ document.getElementById("warmUpDate").innerHTML=dayName
 // in the element with ID "myDate".
 // Example: "4/2/2025" (no leading zeros)
 let currentDate = new Date()
-let month = currentDate.getMonth(1)+1
+let month = currentDate.getMonth()+1
 let monthDay=currentDate.getDate()
-let year = currentDate.fetFullYear()
+let year = currentDate.getFullYear()
 let dateString = month + "/"+monthDay +"/" + year
 document.getElementById("myDate").innerHTML=dateString
 // STEP 6: Create a new Date object (or reuse the one from above).
@@ -122,5 +122,4 @@ let timerInterval = setInterval(() => {
                 myBtn.innerHTML = "Stop"
                 running = true
             }
-        })
     })
