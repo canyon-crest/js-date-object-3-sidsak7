@@ -38,14 +38,14 @@ document.getElementById("warmUpDate").innerHTML=dayName
 // Display the current date in the format: M/D/YYYY
 // in the element with ID "myDate".
 // Example: "4/2/2025" (no leading zeros)
-
+let currentDate = new Date()
+let month = currentDate.getMonth(1)+1
+let monthDay=currentDate.getDate()
+let year = currentDate.fetFullYear()
+let dateString = month + "/"+monthDay +"/" + year
+document.getElementById("myDate").innerHTML=dateString
 // STEP 6: Create a new Date object (or reuse the one from above).
-let date = newDate()
-let month = date.getMonth()
-let dayofmonth = date.getDate()
-let year = date.getFullYear()
-let fulldate = month + "/"+day+"/"+year
-document.getElementById("myDate").innerHTML=fulldate
+
 // STEP 7: Get the month using .getMonth()
 //         IMPORTANT: .getMonth() returns 0–11 (January = 0)
 //         so you must add 1 to get the correct month number.
@@ -101,3 +101,26 @@ document.getElementById("myDate").innerHTML=fulldate
 //             - Start a new setInterval (same as STEP 12)
 //             - Change button innerHTML to "Stop"
 //             - Set running to true
+let startTime = new Date().getTime()
+let timerInterval = setInterval(() => {
+    let currentTime = new Date().getTime()
+    let elapsedSeconds = (currentTime-startTime)/1000
+    document.getElementById("myTimer").innerHTML=elapsedSeconds.toFixed(3);},10)
+    let running = true
+    let myBtn = document.getElementById("myBtn")
+    myBtn.addEventListener("click", () => {
+        if (running){
+            clearInterval(timerInterval)
+            myBtn.innerHTML = "Start"
+            running = false
+        } else {
+            startTime = new Date().getTime()
+            timerInterval = setInterval(() =>{
+                let currentTime = new Date().getTime()
+                let elapsedSeconds = (currentTime-startTime)/1000
+                document.getElementById("myTimer").innerHTML = elapsedSeconds.toFixed(3)}, 10)
+                myBtn.innerHTML = "Stop"
+                running = true
+            }
+        })
+    })
