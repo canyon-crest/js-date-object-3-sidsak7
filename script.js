@@ -42,7 +42,7 @@ document.getElementById("warmUpDate").innerHTML=dayName
 // STEP 6: Create a new Date object (or reuse the one from above).
 let date = newDate()
 let month = date.getMonth()
-let dayofmonth = date.getDay()
+let dayofmonth = date.getDate()
 let year = date.getFullYear()
 let fulldate = month + "/"+day+"/"+year
 document.getElementById("myDate").innerHTML=fulldate
